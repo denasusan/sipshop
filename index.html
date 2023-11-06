@@ -18,7 +18,7 @@
       line-height: normal;
     }
 
-    a{
+    a {
       outline: 0 !important;
     }
   </style>
@@ -27,7 +27,7 @@
 <body class="bg-black">
   <header class="bg-black container-fluid fixed-top py-3">
     <div class="container">
-      <div class="row justify-content-between align-items-center">
+      <div class="row col-12 col-lg-10 mx-auto justify-content-between align-items-center">
         <div class="col-1 d-inline d-lg-none px-2 py-1 rounded"
           style="background-color: #F5DA36; width: auto; height: 100%;">
           <i class="fa fa-bars"></i>
@@ -44,7 +44,8 @@
             <i class="fa fa-search" style="color: #F5DA36; font-size: 18px;" aria-hidden="true"></i>
             <label style="color: #F5DA36; font-size: 14px;">Cek Pesanan</label>
           </div>
-          <div class="rounded-5 px-4 gap-3 py-1 d-flex justify-content-around" style="background-color: #F5DA36;font-size: 13px; font-weight: 500;">
+          <div class="rounded-5 px-4 gap-3 py-1 d-flex justify-content-around"
+            style="background-color: #F5DA36;font-size: 13px; font-weight: 500;">
             <a style="color: black; border: 0px;">Login</a>
             <span>|</span>
             <a style="color: black; border: 0px;">Register</a>
@@ -54,8 +55,8 @@
     </div>
   </header>
   <main class="container-fluid px-0">
-    <div style="margin-top: 25px;background-image: url('assets/images/background-header.png');background-repeat: no-repeat;
-  background-size: 100% 100%;" class="bg-black container-fluid py-5">
+    <div style="background-image: url('assets/images/background-header.png');background-repeat: no-repeat;
+  background-size: 100% 100%;" class="bg-black container-fluid py-5 mt-3 mt-lg-5">
       <div class="row d-flex justify-content-center align-items-center py-2">
         <div class="col-11 col-lg-9">
           <img alt="banner home sipshop" class="w-100 h-auto" src="assets/images/banner-home.png" />
@@ -121,12 +122,15 @@
             </div>
           </div>
           <div class="container d-lg-inline d-none px-0">
-            <div class="d-flex justify-content-start mt-5 rounded-top w-100" style="background-color: #F5DA36;">
-              <div class=" p-3 d-flex justify-content-center align-items-center rounded ms-4"
-                style="margin-left: 0px; margin-bottom: 16px;background-color: #F5DA36; rotate: 45deg; width: 25px; height: 25px; border-style: solid;border-width: 3px;">
-                <i class="fa fa-star" style="color: #B38700; font-size: 16px; rotate: -45deg;" aria-hidden="true"></i>
+            <div class="d-flex position-relative justify-content-start mt-5 rounded-top w-100"
+              style="background-color: #F5DA36;">
+              <div class="position-absolute" style="top: -17px;">
+                <div class=" p-3 d-flex justify-content-center align-items-center rounded ms-4"
+                  style="margin-left: 0px; margin-bottom: 16px; background-color: #F5DA36; rotate: 45deg; width: 25px; height: 25px; border-style: solid;border-width: 3px;">
+                  <i class="fa fa-star" style="color: #B38700; font-size: 16px; rotate: -45deg;" aria-hidden="true"></i>
+                </div>
               </div>
-              <p class="align-self-end text-black" style="font-weight: bold; font-size: 16px; padding-left: 10px;">
+              <p class="align-self-end text-black my-2" style="font-weight: bold; font-size: 16px; margin-left: 72px;">
                 Ulasan
                 Pelanggan</p>
             </div>
@@ -250,13 +254,14 @@
           <!-- Akun User -->
           <div class="container px-0 px-lg-2">
             <div class="d-flex justify-content-between rounded-top-3" style="background-color: #F5DA36;">
-              <div class="d-flex justify-content-start">
-                <div class=" p-3 d-flex justify-content-center align-items-center rounded-1 ms-3 ms-lg-4 me-2"
-                  style=" margin-bottom: 16px;background-color: #F5DA36; rotate: 45deg; width: 25px; height: 25px; border-style: solid;border-width: 3px; border-color: white;">
+              <div class="d-flex justify-content-start position-relative">
+                <div
+                  class=" p-3 d-flex justify-content-center align-items-center rounded-1 ms-3 ms-lg-4 me-2 position-absolute"
+                  style=" margin-bottom: 16px;background-color: #F5DA36; rotate: 45deg; width: 25px; height: 25px; border-style: solid;border-width: 3px; border-color: white;margin-top: -17px;">
                   <span style="color: #000000; font-size: 24px; rotate: -45deg; font-weight: bold;">1</span>
                 </div>
-                <p class="align-self-end text-black pt-3"
-                  style="font-weight: bold; font-size: 16px; padding-left: 10px;">
+                <p class="align-self-end text-black mt-2 mb-3"
+                  style="font-weight: bold; font-size: 16px; padding-left: 72px;">
                   Masukkan Data Akun Anda
                 </p>
               </div>
@@ -268,20 +273,20 @@
               <div class="d-flex w-100 gap-2">
                 <div style="width:60%;">
                   <label class="text-white mb-2" style="font-size: 15px; font-weight: bold;">ID</label>
-                  <input type="text" id="user_id" name="user_id" class="rounded-3 w-100 px-3"
+                  <input type="text" id="user_id" name="user_id" class="rounded-4 w-100 px-3"
                     style="background-color: white; height: 36px; font-size: 13px; border: none;"
                     placeholder="Masukkan User ID" />
                 </div>
                 <div style="width:40%;">
                   <label class="text-white mb-2" style="font-size: 15px; font-weight: bold;">Zona ID</label>
-                  <input type="text" id="zona_id" name="zona_id" class="rounded-3 w-100 px-3"
+                  <input type="text" id="zona_id" name="zona_id" class="rounded-4 w-100 px-3"
                     style="background-color: white; height: 36px; font-size: 13px; border: none;"
                     placeholder="Masukkan Zona ID" />
                 </div>
               </div>
               <div class="w-100 mt-2">
                 <label class="text-white mb-2" style="font-size: 15px; font-weight: bold;">Zona ID</label>
-                <input type="text" disabled id="account_desc" name="account_desc" class="rounded-3 w-100 px-3"
+                <input type="text" disabled id="account_desc" name="account_desc" class="rounded-4 w-100 px-3"
                   style="background-color: #767676; height: 36px; font-weight: bold; color: #F5DA36; font-size: 13px; border: none;"
                   value="Ananda Sekti - SIPSHOP" />
               </div>
@@ -295,13 +300,16 @@
             </form>
           </div>
           <!-- Pilih Nominal -->
-          <div class="container px-0 px-lg-2">
-            <div class="d-flex justify-content-start mt-5 rounded-top-3" style="background-color: #F5DA36;">
-              <div class=" p-3 d-flex justify-content-center align-items-center rounded-1 ms-3 ms-lg-4 me-2"
-                style=" margin-bottom: 16px;background-color: #F5DA36; rotate: 45deg; width: 25px; height: 25px; border-style: solid;border-width: 3px; border-color: white;">
+          <div class="container px-0 px-lg-2 mt-5">
+            <div class="d-flex justify-content-between rounded-top-3 position-relative"
+              style="background-color: #F5DA36;">
+              <div
+                class=" p-3 d-flex justify-content-center align-items-center rounded-1 ms-3 ms-lg-4 me-2 position-absolute"
+                style=" margin-bottom: 16px;background-color: #F5DA36; rotate: 45deg; width: 25px; height: 25px; border-style: solid;border-width: 3px; border-color: white;margin-top: -17px;">
                 <span style="color: #000000; font-size: 24px; rotate: -45deg; font-weight: bold;">2</span>
               </div>
-              <p class="align-self-end text-black pt-3" style="font-weight: bold; font-size: 16px; padding-left: 10px;">
+              <p class="align-self-end text-black mt-2 mb-3"
+                style="font-weight: bold; font-size: 16px; padding-left: 72px;">
                 Pilih Nominal Yang Ingin Dibeli
               </p>
             </div>
@@ -318,7 +326,7 @@
                   <p>Weekly Diamond Pass (82)</p>
                   <span>Rp. 23.730,-</span>
                 </div>
-                <i style="font-size: 24px;" class="fa fa-diamond"></i>
+                <img src="assets/images/icon-ml-lower.png" class="rounded-2" style="width:auto; height:36px;"/>
               </div>
                         </div>`);
                     }
@@ -354,13 +362,16 @@
             </div>
           </div>
           <!-- Pilih Pembayaran -->
-          <div class="container px-0 px-lg-2">
-            <div class="d-flex justify-content-start mt-5 rounded-top-3" style="background-color: #F5DA36;">
-              <div class=" p-3 d-flex justify-content-center align-items-center rounded-1 ms-3 ms-lg-4 me-2"
-                style=" margin-bottom: 16px;background-color: #F5DA36; rotate: 45deg; width: 25px; height: 25px; border-style: solid;border-width: 3px; border-color: white;">
+          <div class="container px-0 px-lg-2 mt-5">
+            <div class="d-flex justify-content-between rounded-top-3 position-relative"
+              style="background-color: #F5DA36;">
+              <div
+                class=" p-3 d-flex justify-content-center align-items-center rounded-1 ms-3 ms-lg-4 me-2 position-absolute"
+                style=" margin-bottom: 16px;background-color: #F5DA36; rotate: 45deg; width: 25px; height: 25px; border-style: solid;border-width: 3px; border-color: white;margin-top: -17px;">
                 <span style="color: #000000; font-size: 24px; rotate: -45deg; font-weight: bold;">3</span>
               </div>
-              <p class="align-self-end text-black pt-3" style="font-weight: bold; font-size: 16px; padding-left: 10px;">
+              <p class="align-self-end text-black mt-2 mb-3"
+                style="font-weight: bold; font-size: 16px; padding-left: 72px;">
                 Pilih Pembayaran yang Ingin Anda Gunakan
               </p>
             </div>
@@ -726,29 +737,29 @@
             </div>
           </div>
           <!-- Kode Voucher -->
-          <div class="container px-0 px-lg-2">
-            <div class="d-flex justify-content-between mt-5 rounded-top-3" style="background-color: #F5DA36;">
-              <div class="d-flex justify-content-start">
-                <div class=" p-3 d-flex justify-content-center align-items-center rounded-1 ms-3 ms-lg-4 me-2"
-                  style=" margin-bottom: 16px;background-color: #F5DA36; rotate: 45deg; width: 25px; height: 25px; border-style: solid;border-width: 3px; border-color: white;">
-                  <span style="color: #000000; font-size: 24px; rotate: -45deg; font-weight: bold;">4</span>
-                </div>
-                <p class="align-self-end text-black pt-3"
-                  style="font-weight: bold; font-size: 16px; padding-left: 10px;">
-                  Kode Voucher Promo
-                </p>
+          <div class="container px-0 px-lg-2 mt-5">
+            <div class="d-flex justify-content-between rounded-top-3 position-relative"
+              style="background-color: #F5DA36;">
+              <div
+                class=" p-3 d-flex justify-content-center align-items-center rounded-1 ms-3 ms-lg-4 me-2 position-absolute"
+                style=" margin-bottom: 16px;background-color: #F5DA36; rotate: 45deg; width: 25px; height: 25px; border-style: solid;border-width: 3px; border-color: white;margin-top: -17px;">
+                <span style="color: #000000; font-size: 24px; rotate: -45deg; font-weight: bold;">4</span>
               </div>
+              <p class="align-self-end text-black mt-2 mb-3"
+                style="font-weight: bold; font-size: 16px; padding-left: 72px;">
+                Kode Voucher Promo
+              </p>
             </div>
             <form action="/" style="background-color: #34373B; font-size: 10px; margin-top: -5px;"
               class="rounded-bottom py-3 px-3">
               <label class="text-white mb-2" style="font-size: 12px; font-weight: bold;">Kode Promo</label>
               <div class="row justify-content-around pr-3">
                 <div class="col-8 col-lg-10 d-flex">
-                  <div class="d-flex justify-content-center align-items-center px-2 rounded-start-3"
+                  <div class="d-flex justify-content-center align-items-center px-2 rounded-start-4"
                     style="background-color: #F5DA36; ">
                     <img src="assets/images/voucher-icon.png" style="width: 100%; height: auto;margin: auto;">
                   </div>
-                  <input type="text" id="kode_voucher" name="kode_voucher" class="rounded-end-3 w-100"
+                  <input type="text" id="kode_voucher" name="kode_voucher" class="rounded-end-4 w-100"
                     style="background-color: white; height: 36px; font-size: 13px; border: none;"
                     placeholder="Masukkan Kode Voucher Promo" />
                 </div>
@@ -761,23 +772,23 @@
             </form>
           </div>
           <!-- Nomor Whatsapp -->
-          <div class="container px-0 px-lg-2">
-            <div class="d-flex justify-content-between mt-5 rounded-top-3" style="background-color: #F5DA36;">
-              <div class="d-flex justify-content-start">
-                <div class=" p-3 d-flex justify-content-center align-items-center rounded-1 ms-3 ms-lg-4 me-2"
-                  style=" margin-bottom: 16px;background-color: #F5DA36; rotate: 45deg; width: 25px; height: 25px; border-style: solid;border-width: 3px; border-color: white;">
-                  <span style="color: #000000; font-size: 24px; rotate: -45deg; font-weight: bold;">5</span>
-                </div>
-                <p class="align-self-end text-black pt-3"
-                  style="font-weight: bold; font-size: 16px; padding-left: 10px;">
-                  Nomor Whatsapp
-                </p>
+          <div class="container px-0 px-lg-2 mt-5">
+            <div class="d-flex justify-content-between rounded-top-3 position-relative"
+              style="background-color: #F5DA36;">
+              <div
+                class=" p-3 d-flex justify-content-center align-items-center rounded-1 ms-3 ms-lg-4 me-2 position-absolute"
+                style=" margin-bottom: 16px;background-color: #F5DA36; rotate: 45deg; width: 25px; height: 25px; border-style: solid;border-width: 3px; border-color: white;margin-top: -17px;">
+                <span style="color: #000000; font-size: 24px; rotate: -45deg; font-weight: bold;">5</span>
               </div>
+              <p class="align-self-end text-black mt-2 mb-3"
+                style="font-weight: bold; font-size: 16px; padding-left: 72px;">
+                Nomor Whatsapp
+              </p>
             </div>
             <div style="background-color: #34373B; font-size: 10px; margin-top: -5px;" class="rounded-bottom py-3 px-4">
               <label class="text-white mb-2" style="font-size: 12px; font-weight: bold;">Kode Promo</label>
               <div class=" w-100 mb-3">
-                <input type="text" id="nomor_whatsapp" name="nomor_whatsapp" class="rounded-3 w-100 px-3"
+                <input type="text" id="nomor_whatsapp" name="nomor_whatsapp" class="rounded-4 w-100 px-3"
                   style="background-color: white; height: 36px; font-size: 13px; border: none;"
                   placeholder="Masukkan Nomor Whatsapp (08xxxxxxxxxx)" />
               </div>
@@ -967,7 +978,7 @@
                 Diamond Mobile Legends ?
               </span>
             </p>
-  
+
             <ol type="number" style="font-size: 13px; font-weight: 500; color: white;">
               <li>Masukan ID Pengguna dan ID Zona Anda</li>
               <li>Pilih nominal diamond</li>
@@ -988,7 +999,7 @@
                 Twilight Pass ?
               </span>
             </p>
-  
+
             <ol type="number" style="font-size: 13px; font-weight: 500; color: white;">
               <li>Masukan ID Pengguna dan ID Zona Anda</li>
               <li>Pilih nominal diamond</li>
@@ -1012,7 +1023,7 @@
                 Weekly Diamond Pass ?
               </span>
             </p>
-  
+
             <ol type="number" style="font-size: 13px; font-weight: 500; color: white;">
               <li>Masukan ID Pengguna dan ID Zona Anda</li>
               <li>Pilih nominal diamond</li>
@@ -1084,7 +1095,8 @@
             </div>
           </div>
           <div class="mt-2">
-            <p class="text-center text-lg-start mb-0 mt-3" style="color: #F5DA36; font-weight: bold; font-size: 15px;">METODE PEMBAYARAN</p><br />
+            <p class="text-center text-lg-start mb-0 mt-3" style="color: #F5DA36; font-weight: bold; font-size: 15px;">
+              METODE PEMBAYARAN</p><br />
             <div class="d-flex flex-wrap gap-2 mt-1">
               <div class="p-1" style="background-color: white;">
                 <img style="height: 25px; width: auto;" src="assets/images/payments/bca.png" alt="">
