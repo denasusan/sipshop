@@ -36,19 +36,20 @@
           <img alt="logo SipShop" src="assets/images/logo.png" class="mw-100" />
         </div>
         <div class="col-7 col-lg-6 d-flex gap-4 align-items-center justify-content-end">
-          <div class="d-flex gap-2 align-items-center d-none d-lg-inline" style="cursor: pointer;">
+          <div class="d-flex gap-2 align-items-center d-none d-lg-inline" style="cursor: pointer;" onclick="goToHome()">
             <i class="fa fa-home " style="color: #F5DA36; font-size: 18px;" aria-hidden="true"></i>
-            <label style="color: #F5DA36; font-size: 14px;">Home</label>
+            <label style="color: #F5DA36; font-size: 14px; cursor: pointer;">Home</label>
           </div>
-          <div class="d-flex gap-2 align-items-center d-none d-lg-inline " style="cursor: pointer;">
+          <div class="d-flex gap-2 align-items-center d-none d-lg-inline " style="cursor: pointer;"
+            onclick="goToPesanan()">
             <i class="fa fa-search" style="color: #F5DA36; font-size: 18px;" aria-hidden="true"></i>
-            <label style="color: #F5DA36; font-size: 14px;">Cek Pesanan</label>
+            <label style="color: #F5DA36; font-size: 14px; cursor: pointer;">Cek Pesanan</label>
           </div>
           <div class="rounded-5 px-4 gap-3 py-1 d-flex justify-content-around"
             style="background-color: #F5DA36;font-size: 13px; font-weight: 500;">
-            <a style="color: black; border: 0px;">Login</a>
+            <span onclick="goToLogin()" style="color: black; border: 0px; cursor: pointer;">Login</span>
             <span>|</span>
-            <a style="color: black; border: 0px;">Register</a>
+            <span onclick="goToRegister()" style="color: black; border: 0px; cursor: pointer;">Register</span>
           </div>
         </div>
       </div>
@@ -245,7 +246,8 @@
                 </div>
                 <span style="font-weight: normal; font-size: 10px; font-style: italic;">“Proses topup nya cepat”</span>
               </div>
-              <p class="mt-4" style="font-size: 11px; font-weight: bold;">Lihat Semua <i class=" fa fa-arrow-right"></i>
+              <p class="mt-4" style="font-size: 11px; font-weight: bold;cursor: pointer;" onclick="goToLihatSemua()">
+                Lihat Semua <i class=" fa fa-arrow-right"></i>
               </p>
             </div>
           </div>
@@ -255,8 +257,7 @@
           <div class="container px-0 px-lg-2">
             <div class="d-flex justify-content-between rounded-top-3" style="background-color: #F5DA36;">
               <div class="d-flex justify-content-start position-relative">
-                <div
-                  class=" p-3 d-flex justify-content-center align-items-center ms-3 ms-lg-4 me-2 position-absolute"
+                <div class=" p-3 d-flex justify-content-center align-items-center ms-3 ms-lg-4 me-2 position-absolute"
                   style=" margin-bottom: 16px;background-color: #F5DA36; rotate: 45deg; width: 25px; height: 25px; border-style: solid;border-width: 3px; border-color: white;margin-top: -18px;">
                   <span style="color: #000000; font-size: 24px; rotate: -45deg; font-weight: bold;">1</span>
                 </div>
@@ -266,7 +267,7 @@
                 </p>
               </div>
               <i class="fa fa-question align-self-center rounded-2 px-2 py-1 me-3"
-                style=" color: #F5DA36; background-color: black;font-size: 12px;"></i>
+                style=" color: #F5DA36; background-color: black;font-size: 12px; cursor: pointer;" onclick="ask()"></i>
             </div>
             <form action="/" style="background-color: #34373B; font-size: 10px; margin-top: -5px;"
               class="rounded-bottom py-3 px-4">
@@ -303,8 +304,7 @@
           <div class="container px-0 px-lg-2 mt-5">
             <div class="d-flex justify-content-between rounded-top-3 position-relative"
               style="background-color: #F5DA36;">
-              <div
-                class=" p-3 d-flex justify-content-center align-items-center ms-3 ms-lg-4 me-2 position-absolute"
+              <div class=" p-3 d-flex justify-content-center align-items-center ms-3 ms-lg-4 me-2 position-absolute"
                 style=" margin-bottom: 16px;background-color: #F5DA36; rotate: 45deg; width: 25px; height: 25px; border-style: solid;border-width: 3px; border-color: white;margin-top: -18px;">
                 <span style="color: #000000; font-size: 24px; rotate: -45deg; font-weight: bold;">2</span>
               </div>
@@ -316,47 +316,12 @@
             <div style="background-color: #34373B; font-size: 10px; margin-top: -5px;" class="rounded-bottom py-3">
               <div class="container">
                 <label class="text-white mb-2" style="font-size: 15px; font-weight: bold;">Item Pilihan</label>
-                <div class="row g-2">
-                  <script>
-                    for (var i = 0; i < 3; i++) {
-                      document.write(`<div onclick="choose(${i})" class="col-6 col-lg-4">
-                        <div  class=" rounded-3 gap-3 py-2 px-3 mt-2 d-flex justify-content-between align-items-center"
-                style="font-size: 10px; cursor:pointer; font-weight: bold; background-color: #CACACA; color:black;">
-                <div>
-                  <p>Weekly Diamond Pass (82)</p>
-                  <span>Rp. 23.730,-</span>
-                </div>
-                <img src="assets/images/icon-ml-lower.png" class="rounded-2" style="width:auto; height:36px;"/>
-              </div>
-                        </div>`);
-                    }
-                  </script>
+                <div class="row g-2" id="item_pilihan_container">
                 </div>
               </div>
               <div class="container mt-4">
                 <label class="text-white mb-2" style="font-size: 15px; font-weight: bold; ">Isi Ulang Instan</label>
-                <div class="row g-2">
-                  <script>
-                    var choosen = 0;
-                    for (var i = 0; i < 36; i++) {
-                      document.write(`<div onclick="choose(${i})" class="col-6 col-lg-4">
-                        <div  class="position-relative rounded-3 gap-3 py-2 mt-2 d-flex justify-content-between align-items-center"
-                style="font-size: 10px; cursor:pointer; font-weight: bold; background-color: ${choosen == i ? `#F5DA36;border:2px solid white; box-shadow: 12px white;` : `#CACACA;`};color:black;">
-                <div>
-                  <p style="padding-left:8px">Weekly Diamond Pass (82)</p>
-                  <span class="py-1" style="padding-left:10px; ${choosen == i ? `background-color:#B38700; padding-right:10px;background-image: linear-gradient(to right, #B38700, #F5DA36);color:#ffffff;` : ``}">Rp. 23.730,-</span>
-                </div>
-                <i style="font-size: 24px;padding-right:8px;" class="fa fa-diamond"></i>
-                ${choosen == i ?
-                          `<div class="position-absolute top-0" style="right: 0px;height:10px; border-right:solid 20px white;border-bottom:solid 20px transparent;border-left:solid 20px transparent;">
-                          <i class="fa fa-check position-absolute" style="right:-20px;" ></i>
-                      </div>`: ""
-                        }
-              </div>
-                        </div>`);
-                    }
-                  </script>
-
+                <div class="row g-2" id="isi_ulang_instan_container">
                 </div>
               </div>
             </div>
@@ -365,8 +330,7 @@
           <div class="container px-0 px-lg-2 mt-5">
             <div class="d-flex justify-content-between rounded-top-3 position-relative"
               style="background-color: #F5DA36;">
-              <div
-                class=" p-3 d-flex justify-content-center align-items-center ms-3 ms-lg-4 me-2 position-absolute"
+              <div class=" p-3 d-flex justify-content-center align-items-center ms-3 ms-lg-4 me-2 position-absolute"
                 style=" margin-bottom: 16px;background-color: #F5DA36; rotate: 45deg; width: 25px; height: 25px; border-style: solid;border-width: 3px; border-color: white;margin-top: -18px;">
                 <span style="color: #000000; font-size: 24px; rotate: -45deg; font-weight: bold;">3</span>
               </div>
@@ -376,363 +340,7 @@
               </p>
             </div>
             <div style="background-color: #34373B; font-size: 10px; margin-top: -5px;" class="rounded-bottom py-3 px-2">
-              <div class="container">
-                <div class="row rounded" style="background-color: #F5DA36; border: 3px solid white;">
-                  <div class="col-9 col-lg-10 px-0">
-                    <img src="assets/images/payments/qris.png" style="width: auto; height: 32px;" class="mx-2 my-2" />
-                    <p class="border-top border-white border-3 px-2"
-                      style="padding-top: 10px;font-size: 12px; font-weight: 600;margin-bottom:10px;">
-                      Bayar dengan QRIS</p>
-                  </div>
-                  <div class="d-flex position-relative col-3 col-lg-2">
-                    <div class="position-absolute top-0"
-                      style="right: 0px;height:15px; border-right:solid 30px white;border-bottom:solid 20px transparent;border-left:solid 20px transparent;">
-                      <i class="fa fa-check position-absolute" style="right:-25px;"></i>
-                    </div>
-                    <p style="top: 12px;box-shadow: 4px 4px #B38700; margin-right: 16px;transform: skew(-15deg);"
-                      class="bg-white px-1 px-lg-2 py-1 rounded-1 position-absolute end-100">
-                      <span style="font-weight: bold; font-size: 11px;white-space: nowrap; display: inline-block;
-                    transform: skew(15deg)">
-                        Cara Bayar
-                      </span>
-                    </p>
-                    <div>
-                      <p style="font-weight: bold; font-size: 15px; margin-bottom: 5px; padding-top: 10px;">Harga</p>
-                      <p style="box-shadow: 4px 4px #B38700;transform: skew(-15deg);margin-left: -16px;"
-                        class="bg-white px-1 px-lg-3 py-2 rounded-1">
-                        <span style="font-weight: bold; font-size: 13px; display: inline-block;
-                    transform: skew(15deg);">
-                          Rp. 1000,-
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="row rounded mt-3" style="background-color: #CACACA; border: none">
-                  <div class="col-9 col-lg-10 px-0">
-                    <img src="assets/images/payments/telkomsel.png" style="width: auto; height: 32px;"
-                      class="mx-2 my-2" />
-                    <p class="border-top border-black border-3 px-2"
-                      style="padding-top: 10px;font-size: 12px; font-weight: 600;margin-bottom:10px;">
-                      Bayar dengan Pulsa Telkomsel</p>
-                  </div>
-                  <div class="d-flex position-relative col-3 col-lg-2">
-                    <p style="top: 12px;box-shadow: 4px 4px #767676; margin-right: 16px;transform: skew(-15deg);"
-                      class="bg-black px-1 px-lg-2 py-1 rounded-1 position-absolute end-100">
-                      <span style="color:#CACACA; font-weight: bold; font-size: 11px;white-space: nowrap; display: inline-block;
-                    transform: skew(15deg);">
-                        Cara Bayar
-                      </span>
-                    </p>
-                    <div>
-                      <p
-                        style="font-weight: bold; font-size: 15px; margin-bottom: 5px; padding-top: 10px; color: black;">
-                        Harga</p>
-                      <p style="box-shadow: 4px 4px #767676;transform: skew(-15deg);margin-left: -16px;"
-                        class="bg-black px-1 px-lg-3 py-2 rounded-1">
-                        <span style="font-weight: bold; font-size: 13px;white-space: nowrap; display: inline-block;
-                    transform: skew(15deg);color:#CACACA;">
-                          Rp. 1000,-
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="row rounded mt-3" style="background-color: #CACACA; border: none">
-                  <div class="col-9 col-lg-10 px-0">
-                    <img src="assets/images/payments/three.png" style="width: auto; height: 32px;" class="mx-2 my-2" />
-                    <p class="border-top border-black border-3 px-2"
-                      style="padding-top: 10px;font-size: 12px; font-weight: 600;margin-bottom:10px;">
-                      Bayar dengan Pulsa Three</p>
-                  </div>
-                  <div class="d-flex position-relative col-3 col-lg-2">
-                    <p style="top: 12px;box-shadow: 4px 4px #767676; margin-right: 16px;transform: skew(-15deg);"
-                      class="bg-black px-1 px-lg-2 py-1 rounded-1 position-absolute end-100">
-                      <span style="color:#CACACA; font-weight: bold; font-size: 11px;white-space: nowrap; display: inline-block;
-                    transform: skew(15deg);">
-                        Cara Bayar
-                      </span>
-                    </p>
-                    <div>
-                      <p
-                        style="font-weight: bold; font-size: 15px; margin-bottom: 5px; padding-top: 10px; color: black;">
-                        Harga</p>
-                      <p style="box-shadow: 4px 4px #767676; margin-right: 16px;transform: skew(-15deg);margin-left: -16px;"
-                        class="bg-black px-1 px-lg-3 py-2 rounded-1">
-                        <span style="font-weight: bold; font-size: 13px;white-space: nowrap; display: inline-block;
-                    transform: skew(15deg);color:#CACACA;">
-                          Rp. 1000,-
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="row rounded mt-3" style="background-color: #CACACA; border: none">
-                  <div class="col-9 col-lg-10 px-0">
-                    <img src="assets/images/payments/indomaret.png" style="width: auto; height: 32px;"
-                      class="mx-2 my-2" />
-                    <p class="border-top border-black border-3 px-2"
-                      style="padding-top: 10px;font-size: 12px; font-weight: 600;margin-bottom:10px;">
-                      Bayar dengan Indomaret</p>
-                  </div>
-                  <div class="d-flex position-relative col-3 col-lg-2">
-                    <p style="top: 12px;box-shadow: 4px 4px #767676; margin-right: 16px;transform: skew(-15deg);"
-                      class="bg-black px-1 px-lg-2 py-1 rounded-1 position-absolute end-100">
-                      <span style="color:#CACACA; font-weight: bold; font-size: 11px;white-space: nowrap; display: inline-block;
-                    transform: skew(15deg);">
-                        Cara Bayar
-                      </span>
-                    </p>
-                    <div>
-                      <p
-                        style="font-weight: bold; font-size: 15px; margin-bottom: 5px; padding-top: 10px; color: black;">
-                        Harga</p>
-                      <p style="box-shadow: 4px 4px #767676; margin-right: 16px;transform: skew(-15deg);margin-left: -16px;"
-                        class="bg-black px-1 px-lg-3 py-2 rounded-1">
-                        <span style="font-weight: bold; font-size: 13px;white-space: nowrap; display: inline-block;
-                    transform: skew(15deg);color:#CACACA;">
-                          Rp. 1000,-
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="row rounded mt-3" style="background-color: #CACACA; border: none">
-                  <div class="col-9 col-lg-10 px-0">
-                    <img src="assets/images/payments/alfamart.png" style="width: auto; height: 32px;"
-                      class="mx-2 my-2" />
-                    <p class="border-top border-black border-3 px-2"
-                      style="padding-top: 10px;font-size: 12px; font-weight: 600;margin-bottom:10px;">
-                      Bayar dengan Alfamart</p>
-                  </div>
-                  <div class="d-flex position-relative col-3 col-lg-2">
-                    <p style="top: 12px;box-shadow: 4px 4px #767676; margin-right: 16px;transform: skew(-15deg);"
-                      class="bg-black px-1 px-lg-2 py-1 rounded-1 position-absolute end-100">
-                      <span style="color:#CACACA; font-weight: bold; font-size: 11px;white-space: nowrap; display: inline-block;
-                    transform: skew(15deg);">
-                        Cara Bayar
-                      </span>
-                    </p>
-                    <div>
-                      <p
-                        style="font-weight: bold; font-size: 15px; margin-bottom: 5px; padding-top: 10px; color: black;">
-                        Harga</p>
-                      <p style="box-shadow: 4px 4px #767676; margin-right: 16px;transform: skew(-15deg);margin-left: -16px;"
-                        class="bg-black px-1 px-lg-3 py-2 rounded-1">
-                        <span style="font-weight: bold; font-size: 13px;white-space: nowrap; display: inline-block;
-                    transform: skew(15deg);color:#CACACA;">
-                          Rp. 1000,-
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="row rounded mt-3" style="background-color: #CACACA; border: none">
-                  <div class="col-9 col-lg-10 px-0">
-                    <img src="assets/images/payments/alfamidi.png" style="width: auto; height: 32px;"
-                      class="mx-2 my-2" />
-                    <p class="border-top border-black border-3 px-2"
-                      style="padding-top: 10px;font-size: 12px; font-weight: 600;margin-bottom:10px;">
-                      Bayar dengan Alfamidi</p>
-                  </div>
-                  <div class="d-flex position-relative col-3 col-lg-2">
-                    <p style="top: 12px;box-shadow: 4px 4px #767676; margin-right: 16px;transform: skew(-15deg);"
-                      class="bg-black px-1 px-lg-2 py-1 rounded-1 position-absolute end-100">
-                      <span style="color:#CACACA; font-weight: bold; font-size: 11px;white-space: nowrap; display: inline-block;
-                    transform: skew(15deg);">
-                        Cara Bayar
-                      </span>
-                    </p>
-                    <div>
-                      <p
-                        style="font-weight: bold; font-size: 15px; margin-bottom: 5px; padding-top: 10px; color: black;">
-                        Harga</p>
-                      <p style="box-shadow: 4px 4px #767676; margin-right: 16px;transform: skew(-15deg);margin-left: -16px;"
-                        class="bg-black px-1 px-lg-3 py-2 rounded-1">
-                        <span style="font-weight: bold; font-size: 13px;white-space: nowrap; display: inline-block;
-                    transform: skew(15deg);color:#CACACA;">
-                          Rp. 1000,-
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="row rounded mt-3" style="background-color: #CACACA; border: none">
-                  <div class="col-9 col-lg-10 px-0">
-                    <img src="assets/images/payments/lawson.png" style="width: auto; height: 32px;" class="mx-2 my-2" />
-                    <p class="border-top border-black border-3 px-2"
-                      style="padding-top: 10px;font-size: 12px; font-weight: 600;margin-bottom:10px;">
-                      Bayar dengan Lawson</p>
-                  </div>
-                  <div class="d-flex position-relative col-3 col-lg-2">
-                    <p style="top: 12px;box-shadow: 4px 4px #767676; margin-right: 16px;transform: skew(-15deg);"
-                      class="bg-black px-1 px-lg-2 py-1 rounded-1 position-absolute end-100">
-                      <span style="color:#CACACA; font-weight: bold; font-size: 11px;white-space: nowrap; display: inline-block;
-                    transform: skew(15deg);">
-                        Cara Bayar
-                      </span>
-                    </p>
-                    <div>
-                      <p
-                        style="font-weight: bold; font-size: 15px; margin-bottom: 5px; padding-top: 10px; color: black;">
-                        Harga</p>
-                      <p style="box-shadow: 4px 4px #767676; margin-right: 16px;transform: skew(-15deg);margin-left: -16px;"
-                        class="bg-black px-1 px-lg-3 py-2 rounded-1">
-                        <span style="font-weight: bold; font-size: 13px;white-space: nowrap; display: inline-block;
-                    transform: skew(15deg);color:#CACACA;">
-                          Rp. 1000,-
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="row rounded mt-3" style="background-color: #7D848E; border: none">
-                  <div class="col-8 col-lg-9 px-0">
-                    <img src="assets/images/payments/bca.png" style="width: auto; height: 32px;" class="mx-4 my-2" />
-                  </div>
-                  <div class="d-flex position-relative col-4 col-lg-3">
-                    <p style="background-color: #434343; top: 12px;box-shadow: 4px 4px #767676; margin-right: 16px;transform: skew(-15deg);"
-                      class=" px-1 px-lg-2 py-1 rounded-1 position-absolute end-100">
-                      <span style="color:#CACACA; font-weight: bold; font-size: 11px;white-space: nowrap; display: inline-block;
-                    transform: skew(15deg);">
-                        Cara Bayar
-                      </span>
-                    </p>
-                    <div>
-                      <p class="ms-lg-2"
-                        style="font-weight: bold; font-size: 13px; margin-bottom: 5px; padding-top: 10px; color: #434343;text-align: center; margin-left: -24px;">
-                        Tidak Tersedia <br /><span class="text-nowrap">Untuk Nominal Ini</span></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="row rounded mt-3" style="background-color: #7D848E; border: none">
-                  <div class="col-8 col-lg-9 px-0">
-                    <img src="assets/images/payments/mandiri.png" style="width: auto; height: 32px;"
-                      class="mx-4 my-2" />
-                  </div>
-                  <div class="d-flex position-relative col-4 col-lg-3">
-                    <p style="background-color: #434343; top: 12px;box-shadow: 4px 4px #767676; margin-right: 16px;transform: skew(-15deg);"
-                      class=" px-1 px-lg-2 py-1 rounded-1 position-absolute end-100">
-                      <span style="color:#CACACA; font-weight: bold; font-size: 11px;white-space: nowrap; display: inline-block;
-                    transform: skew(15deg);">
-                        Cara Bayar
-                      </span>
-                    </p>
-                    <div>
-                      <p class="ms-lg-2"
-                        style="font-weight: bold; font-size: 13px; margin-bottom: 5px; padding-top: 10px; color: #434343;text-align: center; margin-left: -24px;">
-                        Tidak Tersedia <br /><span class="text-nowrap">Untuk Nominal Ini</span></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="row rounded mt-3" style="background-color: #7D848E; border: none">
-                  <div class="col-8 col-lg-9 px-0">
-                    <img src="assets/images/payments/bri.png" style="width: auto; height: 32px;" class="mx-4 my-2" />
-                  </div>
-                  <div class="d-flex position-relative col-4 col-lg-3">
-                    <p style="background-color: #434343; top: 12px;box-shadow: 4px 4px #767676; margin-right: 16px;transform: skew(-15deg);"
-                      class=" px-1 px-lg-2 py-1 rounded-1 position-absolute end-100">
-                      <span style="color:#CACACA; font-weight: bold; font-size: 11px;white-space: nowrap; display: inline-block;
-                  transform: skew(15deg);">
-                        Cara Bayar
-                      </span>
-                    </p>
-                    <div>
-                      <p class="ms-lg-2"
-                        style="font-weight: bold; font-size: 13px; margin-bottom: 5px; padding-top: 10px; color: #434343;text-align: center; margin-left: -24px;">
-                        Tidak Tersedia <br /><span class="text-nowrap">Untuk Nominal Ini</span></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="row rounded mt-3" style="background-color: #7D848E; border: none">
-                  <div class="col-8 col-lg-9 px-0">
-                    <img src="assets/images/payments/bni.png" style="width: auto; height: 32px;" class="mx-4 my-2" />
-                  </div>
-                  <div class="d-flex position-relative col-4 col-lg-3">
-                    <p style="background-color: #434343; top: 12px;box-shadow: 4px 4px #767676; margin-right: 16px;transform: skew(-15deg);"
-                      class=" px-1 px-lg-2 py-1 rounded-1 position-absolute end-100">
-                      <span style="color:#CACACA; font-weight: bold; font-size: 11px;white-space: nowrap; display: inline-block;
-                    transform: skew(15deg);">
-                        Cara Bayar
-                      </span>
-                    </p>
-                    <div>
-                      <p class="ms-lg-2"
-                        style="font-weight: bold; font-size: 13px; margin-bottom: 5px; padding-top: 10px; color: #434343;text-align: center; margin-left: -24px;">
-                        Tidak Tersedia <br /><span class="text-nowrap">Untuk Nominal Ini</span></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="row rounded mt-3" style="background-color: #7D848E; border: none">
-                  <div class="col-8 col-lg-9 px-0">
-                    <img src="assets/images/payments/bsi.png" style="width: auto; height: 32px;" class="mx-4 my-2" />
-                  </div>
-                  <div class="d-flex position-relative col-4 col-lg-3">
-                    <p style="background-color: #434343; top: 12px;box-shadow: 4px 4px #767676; margin-right: 16px;transform: skew(-15deg);"
-                      class=" px-1 px-lg-2 py-1 rounded-1 position-absolute end-100">
-                      <span style="color:#CACACA; font-weight: bold; font-size: 11px;white-space: nowrap; display: inline-block;
-                    transform: skew(15deg);">
-                        Cara Bayar
-                      </span>
-                    </p>
-                    <div>
-                      <p class="ms-lg-2"
-                        style="font-weight: bold; font-size: 13px; margin-bottom: 5px; padding-top: 10px; color: #434343;text-align: center; margin-left: -24px;">
-                        Tidak Tersedia <br /><span class="text-nowrap">Untuk Nominal Ini</span></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="row rounded mt-3" style="background-color: #7D848E; border: none">
-                  <div class="col-8 col-lg-9 px-0">
-                    <img src="assets/images/payments/cimb.png" style="width: auto; height: 32px;" class="mx-4 my-2" />
-                  </div>
-                  <div class="d-flex position-relative col-4 col-lg-3">
-                    <p style="background-color: #434343; top: 12px;box-shadow: 4px 4px #767676; margin-right: 16px;transform: skew(-15deg);"
-                      class=" px-1 px-lg-2 py-1 rounded-1 position-absolute end-100">
-                      <span style="color:#CACACA; font-weight: bold; font-size: 11px;white-space: nowrap; display: inline-block;
-                    transform: skew(15deg);">
-                        Cara Bayar
-                      </span>
-                    </p>
-                    <div>
-                      <p class="ms-lg-2"
-                        style="font-weight: bold; font-size: 13px; margin-bottom: 5px; padding-top: 10px; color: #434343;text-align: center; margin-left: -24px;">
-                        Tidak Tersedia <br /><span class="text-nowrap">Untuk Nominal Ini</span></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="row rounded mt-3" style="background-color: #F5DA36; border: 3px solid white;">
-                  <div class="col-9 col-lg-10 px-0">
-                    <div class="d-flex align-items-center">
-                      <img src="assets/images/payments/sipay.png" style="width: auto; height: 32px;"
-                        class="mx-2 my-2" />
-                      <span style="font-style: italic;font-size: 20px; font-weight: 900; color: #FDFACC;">LEBIH
-                        HEMAT</span>
-                    </div>
-                    <p class="border-top border-white border-3 px-2"
-                      style="padding-top: 10px;font-size: 12px; font-weight: 600;margin-bottom:10px;">
-                      Login untuk menggunakan saldo SiPay</p>
-                  </div>
-                  <div class="d-flex position-relative col-3 col-lg-2">
-                    <p style="top: 12px;box-shadow: 4px 4px #B38700; margin-right: 16px;transform: skew(-15deg);"
-                      class="bg-white px-1 px-lg-2 py-1 rounded-1 position-absolute end-100">
-                      <span style="font-weight: bold; font-size: 11px;white-space: nowrap; display: inline-block;
-                    transform: skew(15deg)">
-                        Cara Bayar
-                      </span>
-                    </p>
-                    <div>
-                      <p style="font-weight: bold; font-size: 15px; margin-bottom: 5px; padding-top: 10px;">Harga</p>
-                      <p style="box-shadow: 5px 5px #B38700; margin-left: -16px;transform: skew(-15deg);"
-                        class="bg-white px-2 px-lg-2 py-1 rounded-1">
-                        <span style="font-weight: bold; font-size: 12px;white-space: nowrap; display: inline-block;
-                    transform: skew(15deg)">
-                          Rp. 1000,-
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
+              <div class="container" id="pilih_pembayaran_container">
               </div>
             </div>
           </div>
@@ -740,8 +348,7 @@
           <div class="container px-0 px-lg-2 mt-5">
             <div class="d-flex justify-content-between rounded-top-3 position-relative"
               style="background-color: #F5DA36;">
-              <div
-                class=" p-3 d-flex justify-content-center align-items-center ms-3 ms-lg-4 me-2 position-absolute"
+              <div class=" p-3 d-flex justify-content-center align-items-center ms-3 ms-lg-4 me-2 position-absolute"
                 style=" margin-bottom: 16px;background-color: #F5DA36; rotate: 45deg; width: 25px; height: 25px; border-style: solid;border-width: 3px; border-color: white;margin-top: -18px;">
                 <span style="color: #000000; font-size: 24px; rotate: -45deg; font-weight: bold;">4</span>
               </div>
@@ -775,8 +382,7 @@
           <div class="container px-0 px-lg-2 mt-5">
             <div class="d-flex justify-content-between rounded-top-3 position-relative"
               style="background-color: #F5DA36;">
-              <div
-                class=" p-3 d-flex justify-content-center align-items-center ms-3 ms-lg-4 me-2 position-absolute"
+              <div class=" p-3 d-flex justify-content-center align-items-center ms-3 ms-lg-4 me-2 position-absolute"
                 style=" margin-bottom: 16px;background-color: #F5DA36; rotate: 45deg; width: 25px; height: 25px; border-style: solid;border-width: 3px; border-color: white;margin-top: -18px;">
                 <span style="color: #000000; font-size: 24px; rotate: -45deg; font-weight: bold;">5</span>
               </div>
@@ -799,7 +405,7 @@
               </span>
             </div>
           </div>
-          <button class="container rounded-3 my-4 text-black"
+          <button onclick="pesanFunc()" class="container rounded-3 my-4 text-black"
             style="background-color: #F5DA36; border: none; height: 36px; font-weight: bold; font-size: 15px;"
             type="submit"> <i class="fa fa-shopping-cart" style="margin-right: 5px;"></i>Pesan Sekarang
           </button>
@@ -928,7 +534,8 @@
                 </div>
                 <span style="font-weight: normal; font-size: 10px; font-style: italic;">“Proses topup nya cepat”</span>
               </div>
-              <p class="mt-4" style="font-size: 11px; font-weight: bold;">Lihat Semua <i class=" fa fa-arrow-right"></i>
+              <p class="mt-4" style="font-size: 11px; font-weight: bold;cursor: pointer;" onclick="goToLihatSemua()">
+                Lihat Semua <i class=" fa fa-arrow-right"></i>
               </p>
             </div>
           </div>
@@ -1085,13 +692,13 @@
               <span class="text-nowrap" style="color: #F5DA36; font-weight: bold; font-size: 15px;">SOCIAL
                 MEDIA</span><br />
               <div class="d-flex gap-2 mt-2">
-                <div class="rounded-5 px-2 py-1" style="background-color: #F5DA36;">
+                <div class="rounded-5 px-2 py-1" style="background-color: #F5DA36; cursor: pointer;" onclick="sosmedFunc('instagram')">
                   <i class="fa fa-instagram rounded-5"></i>
                 </div>
-                <div class="rounded-5 px-2 py-1" style="background-color: #F5DA36;">
+                <div class="rounded-5 px-2 py-1" style="background-color: #F5DA36; cursor: pointer;" onclick="sosmedFunc('whatsapp')">
                   <i class="fa fa-whatsapp rounded-5"></i>
                 </div>
-                <div class="rounded-5 px-2 py-1" style="background-color: #F5DA36;">
+                <div class="rounded-5 px-2 py-1" style="background-color: #F5DA36; cursor: pointer;" onclick="sosmedFunc('youtube')">
                   <i class="fa fa-youtube-play rounded-5"></i>
                 </div>
               </div>
@@ -1153,17 +760,374 @@
           </div>
         </div>
         <div class="col-lg-4 col-12 mx-auto border-top border-white py-2 align-self-end mt-4">
-          <p class="text-white text-center" style="font-size: 12px;">Copyright @2023 SipShop - Situs Top Up Game Termurah Se Indonesia</p>
+          <p class="text-white text-center" style="font-size: 12px;">Copyright @2023 SipShop - Situs Top Up Game
+            Termurah Se Indonesia</p>
         </div>
       </div>
     </div>
   </footer>
+  <script>
+    var choosenIsiUlangInstan = 0;
+    var choosenPayment = 0;
+    var payments = [
+      // status: selected, priority, not-available, available
+      {
+        "id": "0",
+        "name": "QRIS",
+        "image": "assets/images/payments/qris.png",
+        "description": "Bayar dengan QRIS",
+        "status": "selected",
+        "harga": "1.000",
+      },
+      {
+        "id": "1",
+        "name": "Telkomsel",
+        "image": "assets/images/payments/telkomsel.png",
+        "description": "Bayar dengan Pulsa Telkomsel",
+        "status": "available",
+        "harga": "1.000",
+      },
+      {
+        "id": "2",
+        "name": "Three",
+        "image": "assets/images/payments/three.png",
+        "description": "Bayar dengan Pulsa Three",
+        "status": "available",
+        "harga": "1.000",
+      },
+      {
+        "id": "3",
+        "name": "Indomaret",
+        "image": "assets/images/payments/indomaret.png",
+        "description": "Bayar dengan Indomaret",
+        "status": "available",
+        "harga": "1.000",
+      },
+
+      {
+        "id": "4",
+        "name": "Alfamart",
+        "image": "assets/images/payments/alfamart.png",
+        "description": "Bayar dengan Alfamart",
+        "status": "available",
+        "harga": "1.000",
+      },
+      {
+        "id": "5",
+        "name": "Alfamidi",
+        "image": "assets/images/payments/alfamidi.png",
+        "description": "Bayar dengan Alfamidi",
+        "status": "available",
+        "harga": "1.000",
+      },
+      {
+        "id": "6",
+        "name": "Lawson",
+        "image": "assets/images/payments/lawson.png",
+        "description": "Bayar dengan Lawson",
+        "status": "available",
+        "harga": "1.000",
+      },
+      {
+        "id": "7",
+        "name": "",
+        "image": "assets/images/payments/bca.png",
+        "description": "",
+        "status": "not-available",
+        "harga": "",
+      },
+      {
+        "id": "8",
+        "name": "",
+        "image": "assets/images/payments/mandiri.png",
+        "description": "",
+        "status": "not-available",
+        "harga": "",
+      },
+      {
+        "id": "9",
+        "name": "",
+        "image": "assets/images/payments/bri.png",
+        "description": "",
+        "status": "not-available",
+        "harga": "",
+      },
+      {
+        "id": "10",
+        "name": "",
+        "image": "assets/images/payments/bni.png",
+        "description": "",
+        "status": "not-available",
+        "harga": "",
+      },
+      {
+        "id": "11",
+        "name": "",
+        "image": "assets/images/payments/bsi.png",
+        "description": "",
+        "status": "not-available",
+        "harga": "",
+      },
+      {
+        "id": "12",
+        "name": "",
+        "image": "assets/images/payments/cimb.png",
+        "description": "",
+        "status": "not-available",
+        "harga": "",
+      },
+      {
+        "id": "12",
+        "name": "SIPAY",
+        "image": "assets/images/payments/sipay.png",
+        "description": "Login untuk menggunakan saldo SiPay",
+        "status": "priority",
+        "harga": "50.000",
+      },
+    ];
+    var isi_ulang_instan_container = document.getElementById('isi_ulang_instan_container');
+    var item_pilihan_container = document.getElementById('item_pilihan_container');
+    var pilih_pembayaran_container = document.getElementById('pilih_pembayaran_container');
+
+    function setPilihPembayaran () {
+      var temp = "";
+      for (var i = 0; i < payments.length; i++) {
+        if (payments[i].status == "selected") {
+          temp += `
+                <div class="row rounded mt-3" style="background-color: #F5DA36; border: 3px solid white;" onclick="choosePembayaran(${i})">
+                  <div class="col-9 col-lg-10 px-0">
+                    <img src="${payments[i].image}" style="width: auto; height: 32px;" class="mx-2 my-2" />
+                    <p class="border-top border-white border-3 px-2"
+                      style="padding-top: 10px;font-size: 12px; font-weight: 600;margin-bottom:10px;">
+                      ${payments[i].description}</p>
+                  </div>
+                  <div class="d-flex position-relative col-3 col-lg-2">
+                    <div class="position-absolute top-0"
+                      style="right: 0px;height:15px; border-right:solid 30px white;border-bottom:solid 20px transparent;border-left:solid 20px transparent;">
+                      <i class="fa fa-check position-absolute" style="right:-25px;"></i>
+                    </div>
+                    <p onclick="caraBayarFunc()" style="top: 12px;box-shadow: 4px 4px #B38700; margin-right: 16px;transform: skew(-15deg);cursor:pointer;" 
+                      class="bg-white px-1 px-lg-2 py-1 rounded-1 position-absolute end-100">
+                      <span style="font-weight: bold; font-size: 11px;white-space: nowrap; display: inline-block;
+                    transform: skew(15deg)">
+                        Cara Bayar
+                      </span>
+                    </p>
+                    <div>
+                      <p style="font-weight: bold; font-size: 15px; margin-bottom: 5px; padding-top: 10px;">Harga</p>
+                      <p style="box-shadow: 4px 4px #B38700;transform: skew(-15deg);margin-left: -16px;"
+                        class="bg-white px-1 px-lg-3 py-2 rounded-1">
+                        <span style="font-weight: bold; font-size: 13px; display: inline-block;
+                    transform: skew(15deg);">
+                          Rp. ${payments[i].harga},-
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+          `;
+        } else if (payments[i].status == "priority") {
+          temp += `
+          <div class="row rounded mt-3" style="background-color: #F5DA36; border: 3px solid white;" onclick="choosePembayaran(${i})">
+                  <div class="col-9 col-lg-10 px-0">
+                    <div class="d-flex align-items-center">
+                      <img src="${payments[i].image}" style="width: auto; height: 32px;"
+                        class="mx-2 my-2" />
+                      <span style="font-style: italic;font-size: 20px; font-weight: 900; color: #FDFACC;">LEBIH
+                        HEMAT</span>
+                    </div>
+                    <p class="border-top border-white border-3 px-2"
+                      style="padding-top: 10px;font-size: 12px; font-weight: 600;margin-bottom:10px;">
+                      ${payments[i].description}</p>
+                  </div>
+                  <div class="d-flex position-relative col-3 col-lg-2">
+                    <p  onclick="caraBayarFunc()" style="top: 12px;box-shadow: 4px 4px #B38700; margin-right: 16px;transform: skew(-15deg);cursor:pointer;"
+                      class="bg-white px-1 px-lg-2 py-1 rounded-1 position-absolute end-100">
+                      <span style="font-weight: bold; font-size: 11px;white-space: nowrap; display: inline-block;
+                    transform: skew(15deg)">
+                        Cara Bayar
+                      </span>
+                    </p>
+                    <div>
+                      <p style="font-weight: bold; font-size: 15px; margin-bottom: 5px; padding-top: 10px;">Harga</p>
+                      <p style="box-shadow: 5px 5px #B38700; margin-left: -16px;transform: skew(-15deg);"
+                        class="bg-white px-2 px-lg-2 py-1 rounded-1">
+                        <span style="font-weight: bold; font-size: 12px;white-space: nowrap; display: inline-block;
+                    transform: skew(15deg)">
+                          Rp. ${payments[i].harga},-
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+          `;
+        } else if (payments[i].status == "not-available") {
+          temp += `
+                <div class="row rounded mt-3" style="background-color: #7D848E; border: none">
+                  <div class="col-8 col-lg-9 px-0">
+                    <img src="${payments[i].image}" style="width: auto; height: 32px;" class="mx-4 my-2" />
+                  </div>
+                  <div class="d-flex position-relative col-4 col-lg-3">
+                    <p  onclick="caraBayarFunc()" style="background-color: #434343; top: 12px;box-shadow: 4px 4px #767676; margin-right: 16px;transform: skew(-15deg);cursor:pointer;"
+                      class=" px-1 px-lg-2 py-1 rounded-1 position-absolute end-100">
+                      <span style="color:#CACACA; font-weight: bold; font-size: 11px;white-space: nowrap; display: inline-block;
+                  transform: skew(15deg);">
+                        Cara Bayar
+                      </span>
+                    </p>
+                    <div>
+                      <p class="ms-lg-2"
+                        style="font-weight: bold; font-size: 13px; margin-bottom: 5px; padding-top: 10px; color: #434343;text-align: center; margin-left: -24px;">
+                        Tidak Tersedia <br /><span class="text-nowrap">Untuk Nominal Ini</span></p>
+                    </div>
+                  </div>
+                </div>
+          `;
+        } else if (payments[i].status == "available") {
+          temp += `
+                <div class="row rounded mt-3" style="background-color: #CACACA; border: none; cursor:pointer;" onclick="choosePembayaran(${i})">
+                  <div class="col-9 col-lg-10 px-0">
+                    <img src="${payments[i].image}" style="width: auto; height: 32px;"
+                      class="mx-2 my-2" />
+                    <p class="border-top border-black border-3 px-2"
+                      style="padding-top: 10px;font-size: 12px; font-weight: 600;margin-bottom:10px;">
+                      ${payments[i].description}</p>
+                  </div>
+                  <div class="d-flex position-relative col-3 col-lg-2">
+                    <p  onclick="caraBayarFunc()" style="top: 12px;box-shadow: 4px 4px #767676; margin-right: 16px;transform: skew(-15deg);cursor:pointer;"
+                      class="bg-black px-1 px-lg-2 py-1 rounded-1 position-absolute end-100">
+                      <span style="color:#CACACA; font-weight: bold; font-size: 11px;white-space: nowrap; display: inline-block;
+                    transform: skew(15deg);">
+                        Cara Bayar
+                      </span>
+                    </p>
+                    <div>
+                      <p
+                        style="font-weight: bold; font-size: 15px; margin-bottom: 5px; padding-top: 10px; color: black;">
+                        Harga</p>
+                      <p style="box-shadow: 4px 4px #767676;transform: skew(-15deg);margin-left: -16px;"
+                        class="bg-black px-1 px-lg-3 py-2 rounded-1">
+                        <span style="font-weight: bold; font-size: 13px;white-space: nowrap; display: inline-block;
+                    transform: skew(15deg);color:#CACACA;">
+                          Rp. ${payments[i].harga},-
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+          `;
+        }
+      }
+
+      pilih_pembayaran_container.innerHTML = temp;
+    }
+    setPilihPembayaran();
+
+    function setIsiUlangInstan() {
+      var temp = "";
+
+      for (var i = 0; i < 36; i++) {
+        temp += `<div onclick="chooseIsiUlangPayment(${i})" class="col-6 col-lg-4" id="${i}_isiulanginstan">
+                        <div class="position-relative rounded-3 gap-3 py-2 mt-2 d-flex justify-content-between align-items-center"
+                          style="font-size: 10px; cursor: ${choosenIsiUlangInstan == i ? "not-available " : "pointer"}; font-weight: bold; background-color: ${choosenIsiUlangInstan == i ? `#F5DA36;border:2px solid white; box-shadow: 12px white;` : `#CACACA;`};color:black;">
+                          <div>
+                            <p style="padding-left:8px">Weekly Diamond Pass (82)</p>
+                            <span class="py-1" style="padding-left:10px; ${choosenIsiUlangInstan == i ? `background-color:#B38700; padding-right:10px;background-image: linear-gradient(to right, #B38700, #F5DA36);color:#ffffff;` : ``}">Rp. 23.730,-</span>
+                          </div>
+                          <i style="font-size: 24px;padding-right:8px;" class="fa fa-diamond"></i>
+                          ${choosenIsiUlangInstan == i ?
+            `<div class="position-absolute top-0" style="right: 0px;height:10px; border-right:solid 20px white;border-bottom:solid 20px transparent;border-left:solid 20px transparent;">
+                              <i class="fa fa-check position-absolute" style="right:-20px;" ></i>
+                            </div>`: ""
+          }
+                        </div>                      
+                      </div>`;
+      }
+      isi_ulang_instan_container.innerHTML = temp;
+    }
+    setIsiUlangInstan();
+
+    function setItemPilihan() {
+      var temp = "";
+
+      for (var i = 0; i < 3; i++) {
+        temp += `<div class="col-6 col-lg-4" id="${i}_itempilihan">
+                        <div  class=" rounded-3 gap-3 py-2 px-3 mt-2 d-flex justify-content-between align-items-center"
+                style="font-size: 10px; cursor:pointer; font-weight: bold; background-color: #CACACA; color:black;">
+                <div>
+                  <p>Weekly Diamond Pass (82)</p>
+                  <span>Rp. 23.730,-</span>
+                </div>
+                <img src="assets/images/icon-ml-lower.png" class="rounded-2" style="width:auto; height:36px;"/>
+              </div>
+                        </div>`;
+      }
+      item_pilihan_container.innerHTML = temp;
+    }
+    setItemPilihan();
+
+    function chooseIsiUlangPayment(i) {
+      choosenIsiUlangInstan = i;
+      setIsiUlangInstan();
+    }
+
+    function choosePembayaran(i) {
+      payments[choosenPayment].status = "available";
+      payments[i].status = "selected";
+      choosenPayment = i;
+      setPilihPembayaran();
+    }
+
+    function goToHome() {
+      window.location.href = ("/");
+      alert("HOME");
+    }
+
+    function goToPesanan() {
+      window.location.href = ("/");
+      alert("Pesanan");
+    }
+
+    function goToLogin() {
+      window.location.href = ("/");
+      alert("Login");
+    }
+
+    function goToRegister() {
+      window.location.href = ("/");
+      alert("Register");
+    }
+
+    function goToLihatSemua() {
+      window.location.href = ("/");
+      alert("Lihat Semua");
+    }
+
+    function ask() {
+      window.location.href = ("/");
+      alert("Tanya");
+    }
+
+    function caraBayarFunc () {
+      alert("CARA BAYAR");
+    }
+
+    function pesanFunc () {
+      alert("Pesan Sekarang");
+    }
+
+    function sosmedFunc(name) {
+      alert("SOSIAL MEDIA ", name);
+    }
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
     integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
     crossorigin="anonymous"></script>
+
+
 </body>
 
 </html>
