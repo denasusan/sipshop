@@ -692,13 +692,16 @@
               <span class="text-nowrap" style="color: #F5DA36; font-weight: bold; font-size: 15px;">SOCIAL
                 MEDIA</span><br />
               <div class="d-flex gap-2 mt-2">
-                <div class="rounded-5 px-2 py-1" style="background-color: #F5DA36; cursor: pointer;" onclick="sosmedFunc('instagram')">
+                <div class="rounded-5 px-2 py-1" style="background-color: #F5DA36; cursor: pointer;"
+                  onclick="sosmedFunc('instagram')">
                   <i class="fa fa-instagram rounded-5"></i>
                 </div>
-                <div class="rounded-5 px-2 py-1" style="background-color: #F5DA36; cursor: pointer;" onclick="sosmedFunc('whatsapp')">
+                <div class="rounded-5 px-2 py-1" style="background-color: #F5DA36; cursor: pointer;"
+                  onclick="sosmedFunc('whatsapp')">
                   <i class="fa fa-whatsapp rounded-5"></i>
                 </div>
-                <div class="rounded-5 px-2 py-1" style="background-color: #F5DA36; cursor: pointer;" onclick="sosmedFunc('youtube')">
+                <div class="rounded-5 px-2 py-1" style="background-color: #F5DA36; cursor: pointer;"
+                  onclick="sosmedFunc('youtube')">
                   <i class="fa fa-youtube-play rounded-5"></i>
                 </div>
               </div>
@@ -793,7 +796,7 @@
         "image": "assets/images/payments/three.png",
         "description": "Bayar dengan Pulsa Three",
         "status": "available",
-        "harga": "1.000",
+        "harga": "1.000.000",
       },
       {
         "id": "3",
@@ -882,26 +885,27 @@
         "image": "assets/images/payments/sipay.png",
         "description": "Login untuk menggunakan saldo SiPay",
         "status": "priority",
-        "harga": "50.000",
+        "harga": "5.000.000",
       },
     ];
     var isi_ulang_instan_container = document.getElementById('isi_ulang_instan_container');
     var item_pilihan_container = document.getElementById('item_pilihan_container');
     var pilih_pembayaran_container = document.getElementById('pilih_pembayaran_container');
+    var id_priority;
 
-    function setPilihPembayaran () {
+    function setPilihPembayaran() {
       var temp = "";
       for (var i = 0; i < payments.length; i++) {
         if (payments[i].status == "selected") {
           temp += `
-                <div class="row rounded mt-3" style="background-color: #F5DA36; border: 3px solid white;" onclick="choosePembayaran(${i})">
-                  <div class="col-9 col-lg-10 px-0">
+                <div class="d-flex justify-content-between rounded mt-3" style="background-color: #F5DA36; border: 3px solid white;" onclick="choosePembayaran(${i})">
+                  <div class="px-0" style="width:100%;">
                     <img src="${payments[i].image}" style="width: auto; height: 32px;" class="mx-2 my-2" />
                     <p class="border-top border-white border-3 px-2"
                       style="padding-top: 10px;font-size: 12px; font-weight: 600;margin-bottom:10px;">
                       ${payments[i].description}</p>
                   </div>
-                  <div class="d-flex position-relative col-3 col-lg-2">
+                  <div class="d-flex position-relative">
                     <div class="position-absolute top-0"
                       style="right: 0px;height:15px; border-right:solid 30px white;border-bottom:solid 20px transparent;border-left:solid 20px transparent;">
                       <i class="fa fa-check position-absolute" style="right:-25px;"></i>
@@ -915,9 +919,9 @@
                     </p>
                     <div>
                       <p style="font-weight: bold; font-size: 15px; margin-bottom: 5px; padding-top: 10px;">Harga</p>
-                      <p style="box-shadow: 4px 4px #B38700;transform: skew(-15deg);margin-left: -16px;"
-                        class="bg-white px-1 px-lg-3 py-2 rounded-1">
-                        <span style="font-weight: bold; font-size: 13px; display: inline-block;
+                      <p style="box-shadow: 4px 4px #B38700;transform: skew(-15deg);margin-left: -5px;"
+                        class="bg-white px-1 px-lg-3 py-2 rounded-1 me-3">
+                        <span style="font-weight: bold; font-size: 13px; display: inline-block;white-space:nowrap;
                     transform: skew(15deg);">
                           Rp. ${payments[i].harga},-
                         </span>
@@ -927,9 +931,10 @@
                 </div>
           `;
         } else if (payments[i].status == "priority") {
+          id_priority = i;
           temp += `
-          <div class="row rounded mt-3" style="background-color: #F5DA36; border: 3px solid white;" onclick="choosePembayaran(${i})">
-                  <div class="col-9 col-lg-10 px-0">
+          <div class=" d-flex justify-content-between rounded mt-3" style="background-color: #F5DA36; border: 3px solid white;" onclick="choosePembayaran(${i})">
+                  <div class="px-0" style="width:100%;">
                     <div class="d-flex align-items-center">
                       <img src="${payments[i].image}" style="width: auto; height: 32px;"
                         class="mx-2 my-2" />
@@ -940,7 +945,7 @@
                       style="padding-top: 10px;font-size: 12px; font-weight: 600;margin-bottom:10px;">
                       ${payments[i].description}</p>
                   </div>
-                  <div class="d-flex position-relative col-3 col-lg-2">
+                  <div class="d-flex position-relative me-3">
                     <p  onclick="caraBayarFunc()" style="top: 12px;box-shadow: 4px 4px #B38700; margin-right: 16px;transform: skew(-15deg);cursor:pointer;"
                       class="bg-white px-1 px-lg-2 py-1 rounded-1 position-absolute end-100">
                       <span style="font-weight: bold; font-size: 11px;white-space: nowrap; display: inline-block;
@@ -952,7 +957,7 @@
                       <p style="font-weight: bold; font-size: 15px; margin-bottom: 5px; padding-top: 10px;">Harga</p>
                       <p style="box-shadow: 5px 5px #B38700; margin-left: -16px;transform: skew(-15deg);"
                         class="bg-white px-2 px-lg-2 py-1 rounded-1">
-                        <span style="font-weight: bold; font-size: 12px;white-space: nowrap; display: inline-block;
+                        <span class="py-1" style="font-weight: bold; font-size: 13px;white-space: nowrap; display: inline-block;
                     transform: skew(15deg)">
                           Rp. ${payments[i].harga},-
                         </span>
@@ -963,13 +968,13 @@
           `;
         } else if (payments[i].status == "not-available") {
           temp += `
-                <div class="row rounded mt-3" style="background-color: #7D848E; border: none">
-                  <div class="col-8 col-lg-9 px-0">
-                    <img src="${payments[i].image}" style="width: auto; height: 32px;" class="mx-4 my-2" />
+                <div class=" d-flex justify-content-between rounded mt-3 pe-3" style="background-color: #7D848E; border: none">
+                  <div class="px-0" style="width:100%;">
+                    <img src="${payments[i].image}" style="width: auto; height: 24px;" class="mx-4 my-2" />
                   </div>
-                  <div class="d-flex position-relative col-4 col-lg-3">
-                    <p  onclick="caraBayarFunc()" style="background-color: #434343; top: 12px;box-shadow: 4px 4px #767676; margin-right: 16px;transform: skew(-15deg);cursor:pointer;"
-                      class=" px-1 px-lg-2 py-1 rounded-1 position-absolute end-100">
+                  <div class="d-flex position-relative">
+                    <p  onclick="caraBayarFunc()" style="background-color: #434343; top: 12px;box-shadow: 4px 4px #767676; margin-right: 16px;transform: skew(-15deg);cursor:pointer;right:120px;"
+                      class=" px-1 px-lg-2 py-1 rounded-1 position-absolute">
                       <span style="color:#CACACA; font-weight: bold; font-size: 11px;white-space: nowrap; display: inline-block;
                   transform: skew(15deg);">
                         Cara Bayar
@@ -985,15 +990,15 @@
           `;
         } else if (payments[i].status == "available") {
           temp += `
-                <div class="row rounded mt-3" style="background-color: #CACACA; border: none; cursor:pointer;" onclick="choosePembayaran(${i})">
-                  <div class="col-9 col-lg-10 px-0">
+                <div class=" d-flex justify-content-between rounded mt-3 pe-3" style="background-color: #CACACA; border: none; cursor:pointer;" onclick="choosePembayaran(${i})">
+                  <div class="px-0" style="width:100%;">
                     <img src="${payments[i].image}" style="width: auto; height: 32px;"
                       class="mx-2 my-2" />
                     <p class="border-top border-black border-3 px-2"
                       style="padding-top: 10px;font-size: 12px; font-weight: 600;margin-bottom:10px;">
                       ${payments[i].description}</p>
                   </div>
-                  <div class="d-flex position-relative col-3 col-lg-2">
+                  <div class="d-flex position-relative">
                     <p  onclick="caraBayarFunc()" style="top: 12px;box-shadow: 4px 4px #767676; margin-right: 16px;transform: skew(-15deg);cursor:pointer;"
                       class="bg-black px-1 px-lg-2 py-1 rounded-1 position-absolute end-100">
                       <span style="color:#CACACA; font-weight: bold; font-size: 11px;white-space: nowrap; display: inline-block;
@@ -1005,7 +1010,7 @@
                       <p
                         style="font-weight: bold; font-size: 15px; margin-bottom: 5px; padding-top: 10px; color: black;">
                         Harga</p>
-                      <p style="box-shadow: 4px 4px #767676;transform: skew(-15deg);margin-left: -16px;"
+                      <p style="box-shadow: 4px 4px #767676;transform: skew(-15deg);margin-left: -5px;"
                         class="bg-black px-1 px-lg-3 py-2 rounded-1">
                         <span style="font-weight: bold; font-size: 13px;white-space: nowrap; display: inline-block;
                     transform: skew(15deg);color:#CACACA;">
@@ -1032,7 +1037,7 @@
                           style="font-size: 10px; cursor: ${choosenIsiUlangInstan == i ? "not-available " : "pointer"}; font-weight: bold; background-color: ${choosenIsiUlangInstan == i ? `#F5DA36;border:2px solid white; box-shadow: 12px white;` : `#CACACA;`};color:black;">
                           <div>
                             <p style="padding-left:8px">Weekly Diamond Pass (82)</p>
-                            <span class="py-1" style="padding-left:10px; ${choosenIsiUlangInstan == i ? `background-color:#B38700; padding-right:10px;background-image: linear-gradient(to right, #B38700, #F5DA36);color:#ffffff;` : ``}">Rp. 23.730,-</span>
+                            <p class="py-1" style="padding-left:10px;margin-bottom: 0px; ${choosenIsiUlangInstan == i ? `background-color:#B38700;background-image: linear-gradient(to right, #B38700, #F5DA36);color:#ffffff;` : ``}">Rp. 23.730,-</p>
                           </div>
                           <i style="font-size: 24px;padding-right:8px;" class="fa fa-diamond"></i>
                           ${choosenIsiUlangInstan == i ?
@@ -1072,7 +1077,12 @@
     }
 
     function choosePembayaran(i) {
-      payments[choosenPayment].status = "available";
+      if (payments[choosenPayment].id == id_priority && payments[choosenPayment].status == "selected") {
+        payments[choosenPayment].status = "priority";
+      } else {
+        payments[choosenPayment].status = "available";
+      }
+
       payments[i].status = "selected";
       choosenPayment = i;
       setPilihPembayaran();
@@ -1108,11 +1118,11 @@
       alert("Tanya");
     }
 
-    function caraBayarFunc () {
+    function caraBayarFunc() {
       alert("CARA BAYAR");
     }
 
-    function pesanFunc () {
+    function pesanFunc() {
       alert("Pesan Sekarang");
     }
 
