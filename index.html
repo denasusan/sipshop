@@ -1077,8 +1077,8 @@
     }
 
     function choosePembayaran(i) {
-      if (payments[choosenPayment].id == id_priority && payments[choosenPayment].status == "selected") {
-        payments[choosenPayment].status = "priority";
+      if (i != id_priority && payments[id_priority].status == "selected") {
+        payments[id_priority].status = "priority";
       } else {
         payments[choosenPayment].status = "available";
       }
